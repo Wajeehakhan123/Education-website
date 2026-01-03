@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduLearn - Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#4f46e5',secondary:'#f97316'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+.custom-checkbox {
+position: relative;
+cursor: pointer;
+}
+.custom-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #e5e7eb;
+border-radius: 4px;
+}
+.custom-checkbox:hover input ~ .checkmark {
+border-color: #d1d5db;
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #4f46e5;
+border-color: #4f46e5;
+}
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+.custom-checkbox .checkmark:after {
+left: 6px;
+top: 2px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.blog-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+.tag-item:hover {
+background-color: #4f46e5;
+color: white;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Navigation -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+<div class="container mx-auto px-4 py-4 flex items-center justify-between">
+<div class="flex items-center">
+<a href="EduLearn-Course-Overview.html" class="text-3xl font-['Pacifico'] text-primary mr-10">logo</a>
+<nav class="hidden md:flex space-x-8">
+<a href="All-Available-Courses.html"class="text-gray-600 hover:text-primary font-medium">Courses</a>
+<a href="Online-Learning-Blog.html" class="text-primary font-medium border-b-2 border-primary pb-1">Blog</a>
+<a href="EduLearn-Forum-Page.html" class="text-gray-600 hover:text-primary font-medium">Forum</a>
+<a href="#" class="text-gray-600 hover:text-primary font-medium">About</a>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<div class="relative hidden md:block">
+<input type="text" placeholder="Search articles..." class="w-64 pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm">
+<div class="absolute left-3 top-2.5 w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-search-line"></i>
+</div>
+</div>
+<button class="bg-white text-primary border border-primary hover:bg-primary/5 px-4 py-2 !rounded-button font-medium text-sm whitespace-nowrap">Log In</button>
+<button class="bg-primary text-white hover:bg-primary/90 px-4 py-2 !rounded-button font-medium text-sm whitespace-nowrap">Sign Up</button>
+<div class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 cursor-pointer">
+<i class="ri-moon-line"></i>
+</div>
+</div>
+</div>
+</header>
+<!-- Breadcrumb -->
+<div class="bg-white border-b">
+<div class="container mx-auto px-4 py-3">
+<div class="flex items-center text-sm text-gray-600">
+<a href="https://readdy.ai/home/3dcc5040-50e1-459c-bd6c-a7dc49a8a494/2e33e880-0f95-42c5-8ff7-c521a1edef4f" data-readdy="true" class="hover:text-primary">Home</a>
+<i class="ri-arrow-right-s-line mx-2"></i>
+<span class="text-gray-900 font-medium">Blog</span>
+</div>
+</div>
+</div>
+<!-- Featured Post Hero -->
+<div class="relative bg-gray-900 text-white">
+<div style="background-image: url('https://readdy.ai/api/search-image?query=modern%2520classroom%2520with%2520students%2520using%2520laptops%2520and%2520digital%2520devices%252C%2520bright%2520educational%2520environment%2520with%2520natural%2520lighting%252C%2520collaborative%2520learning%2520space%2520with%2520interactive%2520technology%252C%2520high-quality%2520educational%2520setting&width=1920&height=600&seq=201&orientation=landscape'); background-size: cover; background-position: center;" class="absolute inset-0 opacity-50"></div>
+<div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
+<div class="max-w-3xl">
+<span class="inline-block bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">E-Learning Trends</span>
+<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">The Future of Education: How AI is Transforming Online Learning</h1>
+<p class="text-lg text-gray-200 mb-6">Discover how artificial intelligence is revolutionizing the educational landscape and creating personalized learning experiences for students worldwide.</p>
+<div class="flex items-center mb-6">
+<img src="https://readdy.ai/api/search-image?query=professional%2520female%2520education%2520expert%2520with%2520glasses%2520and%2520confident%2520expression%252C%2520neutral%2520background%252C%2520headshot&width=100&height=100&seq=202&orientation=squarish" alt="Author" class="w-12 h-12 rounded-full object-cover mr-4">
+<div>
+<h3 class="font-medium">Dr. Emily Chen</h3>
+<div class="flex items-center text-sm text-gray-300">
+<span>May 1, 2025</span>
+<span class="mx-2">•</span>
+<span>10 min read</span>
+</div>
+</div>
+</div>
+<button class="bg-white text-gray-900 hover:bg-gray-100 px-6 py-3 !rounded-button font-medium whitespace-nowrap">Read Article</button>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="container mx-auto px-4 py-12">
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Main Blog Content -->
+<div class="lg:w-2/3">
+<!-- Blog Filters -->
+<div class="bg-white rounded-lg shadow-sm p-4 mb-8 flex flex-wrap items-center justify-between">
+<div class="flex items-center space-x-2 mb-2 sm:mb-0">
+<span class="text-gray-700 font-medium">Filter by:</span>
+<div class="relative">
+<button class="flex items-center bg-gray-100 hover:bg-gray-200 rounded-full px-4 py-2 text-sm text-gray-700">
+<span>All Categories</span>
+<i class="ri-arrow-down-s-line ml-2"></i>
+</button>
+<div class="absolute left-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg p-2 hidden">
+<a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">All Categories</a>
+<a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">E-Learning Trends</a>
+<a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">Teaching Tips</a>
+<a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">Student Success</a>
+<a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">Educational Technology</a>
+<a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">Career Development</a>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-gray-700 font-medium">Sort by:</span>
+<div class="relative">
+<button class="flex items-center bg-gray-100 hover:bg-gray-200 rounded-full px-4 py-2 text-sm text-gray-700">
+<span>Latest</span>
+<i class="ri-arrow-down-s-line ml-2"></i>
+</button>
+<div class="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg p-2 hidden">
+<a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">Latest</a>
+<a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">Most Popular</a>
+<a href="#" class="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded">Trending</a>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-2 mt-2 sm:mt-0">
+<button class="w-9 h-9 flex items-center justify-center rounded bg-primary text-white">
+<i class="ri-layout-grid-line"></i>
+</button>
+<button class="w-9 h-9 flex items-center justify-center rounded bg-gray-100 text-gray-600 hover:bg-gray-200">
+<i class="ri-list-check"></i>
+</button>
+</div>
+</div>
+<!-- Blog Posts Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+<!-- Blog Post 1 -->
+<div class="blog-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=student%2520learning%2520online%2520with%2520laptop%2520in%2520cozy%2520home%2520environment%252C%2520focused%2520on%2520digital%2520course%2520materials%252C%2520educational%2520setting%2520with%2520books%2520and%2520coffee%252C%2520warm%2520lighting&width=600&height=400&seq=203&orientation=landscape" alt="Remote Learning Tips" class="w-full h-48 object-cover object-top">
+<span class="absolute top-3 left-3 bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded">Teaching Tips</span>
+</div>
+<div class="p-5">
+<h3 class="font-semibold text-lg text-gray-900 mb-2">10 Effective Strategies for Remote Learning Success</h3>
+<p class="text-gray-600 text-sm mb-4">Discover proven techniques to enhance student engagement and learning outcomes in virtual classroom environments.</p>
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=professional%2520male%2520educator%2520with%2520friendly%2520smile%252C%2520neutral%2520background%252C%2520headshot&width=100&height=100&seq=204&orientation=squarish" alt="Author" class="w-8 h-8 rounded-full object-cover mr-2">
+<span class="text-sm text-gray-700">Robert Johnson</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="text-sm text-gray-500">
+<span>April 28, 2025</span>
+<span class="mx-1">•</span>
+<span>8 min read</span>
+</div>
+<div class="flex space-x-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<i class="ri-heart-line"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<i class="ri-bookmark-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Blog Post 2 -->
+<div class="blog-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=diverse%2520group%2520of%2520students%2520collaborating%2520on%2520digital%2520devices%252C%2520modern%2520classroom%2520setting%252C%2520educational%2520technology%2520in%2520use%252C%2520bright%2520learning%2520environment&width=600&height=400&seq=205&orientation=landscape" alt="Collaborative Learning" class="w-full h-48 object-cover object-top">
+<span class="absolute top-3 left-3 bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded">Student Success</span>
+</div>
+<div class="p-5">
+<h3 class="font-semibold text-lg text-gray-900 mb-2">The Power of Collaborative Learning in Digital Classrooms</h3>
+<p class="text-gray-600 text-sm mb-4">How group projects and peer-to-peer learning can enhance knowledge retention and critical thinking skills.</p>
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=professional%2520female%2520education%2520expert%2520with%2520warm%2520smile%252C%2520neutral%2520background%252C%2520headshot&width=100&height=100&seq=206&orientation=squarish" alt="Author" class="w-8 h-8 rounded-full object-cover mr-2">
+<span class="text-sm text-gray-700">Sophia Martinez</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="text-sm text-gray-500">
+<span>April 25, 2025</span>
+<span class="mx-1">•</span>
+<span>6 min read</span>
+</div>
+<div class="flex space-x-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<i class="ri-heart-line"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<i class="ri-bookmark-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Blog Post 3 -->
+<div class="blog-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=virtual%2520reality%2520educational%2520experience%2520with%2520student%2520using%2520VR%2520headset%252C%2520futuristic%2520learning%2520technology%252C%2520immersive%2520educational%2520content%252C%2520high-tech%2520classroom&width=600&height=400&seq=207&orientation=landscape" alt="VR in Education" class="w-full h-48 object-cover object-top">
+<span class="absolute top-3 left-3 bg-purple-500 text-white text-xs font-semibold px-2 py-1 rounded">Educational Technology</span>
+</div>
+<div class="p-5">
+<h3 class="font-semibold text-lg text-gray-900 mb-2">Virtual Reality: Transforming the Learning Experience</h3>
+<p class="text-gray-600 text-sm mb-4">Exploring how VR technology is creating immersive educational experiences and revolutionizing traditional learning methods.</p>
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=professional%2520male%2520tech%2520educator%2520with%2520glasses%252C%2520neutral%2520background%252C%2520headshot&width=100&height=100&seq=208&orientation=squarish" alt="Author" class="w-8 h-8 rounded-full object-cover mr-2">
+<span class="text-sm text-gray-700">David Kim</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="text-sm text-gray-500">
+<span>April 22, 2025</span>
+<span class="mx-1">•</span>
+<span>9 min read</span>
+</div>
+<div class="flex space-x-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<i class="ri-heart-line"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<i class="ri-bookmark-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Blog Post 4 -->
+<div class="blog-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=professional%2520woman%2520working%2520on%2520laptop%2520in%2520modern%2520office%252C%2520career%2520development%2520setting%252C%2520educational%2520content%2520about%2520professional%2520growth%252C%2520bright%2520workspace&width=600&height=400&seq=209&orientation=landscape" alt="Career Development" class="w-full h-48 object-cover object-top">
+<span class="absolute top-3 left-3 bg-yellow-500 text-white text-xs font-semibold px-2 py-1 rounded">Career Development</span>
+</div>
+<div class="p-5">
+<h3 class="font-semibold text-lg text-gray-900 mb-2">How Continuous Learning Drives Career Advancement</h3>
+<p class="text-gray-600 text-sm mb-4">The importance of lifelong learning in today's rapidly evolving job market and strategies for professional growth.</p>
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=professional%2520female%2520career%2520coach%2520with%2520confident%2520expression%252C%2520neutral%2520background%252C%2520headshot&width=100&height=100&seq=210&orientation=squarish" alt="Author" class="w-8 h-8 rounded-full object-cover mr-2">
+<span class="text-sm text-gray-700">Jessica Taylor</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="text-sm text-gray-500">
+<span>April 20, 2025</span>
+<span class="mx-1">•</span>
+<span>7 min read</span>
+</div>
+<div class="flex space-x-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<i class="ri-heart-line"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<i class="ri-bookmark-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Blog Post 5 -->
+<div class="blog-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=teacher%2520using%2520digital%2520tablet%2520to%2520explain%2520lesson%2520to%2520students%252C%2520modern%2520classroom%2520with%2520technology%252C%2520educational%2520setting%2520with%2520engaged%2520learners%252C%2520bright%2520environment&width=600&height=400&seq=211&orientation=landscape" alt="Digital Assessment" class="w-full h-48 object-cover object-top">
+<span class="absolute top-3 left-3 bg-blue-500 text-white text-xs font-semibold px-2 py-1 rounded">Teaching Tips</span>
+</div>
+<div class="p-5">
+<h3 class="font-semibold text-lg text-gray-900 mb-2">Digital Assessment Tools: Beyond Traditional Testing</h3>
+<p class="text-gray-600 text-sm mb-4">Innovative approaches to student assessment that provide deeper insights into learning progress and comprehension.</p>
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=professional%2520male%2520education%2520expert%2520with%2520thoughtful%2520expression%252C%2520neutral%2520background%252C%2520headshot&width=100&height=100&seq=212&orientation=squarish" alt="Author" class="w-8 h-8 rounded-full object-cover mr-2">
+<span class="text-sm text-gray-700">Thomas Wilson</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="text-sm text-gray-500">
+<span>April 18, 2025</span>
+<span class="mx-1">•</span>
+<span>6 min read</span>
+</div>
+<div class="flex space-x-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<i class="ri-heart-line"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<i class="ri-bookmark-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Blog Post 6 -->
+<div class="blog-card bg-white rounded-lg shadow-sm overflow-hidden transition duration-300">
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=diverse%2520students%2520with%2520different%2520learning%2520styles%2520in%2520educational%2520setting%252C%2520personalized%2520learning%2520environment%252C%2520inclusive%2520classroom%2520with%2520various%2520learning%2520materials%252C%2520bright%2520setting&width=600&height=400&seq=213&orientation=landscape" alt="Personalized Learning" class="w-full h-48 object-cover object-top">
+<span class="absolute top-3 left-3 bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded">Student Success</span>
+</div>
+<div class="p-5">
+<h3 class="font-semibold text-lg text-gray-900 mb-2">Personalized Learning: Adapting to Individual Student Needs</h3>
+<p class="text-gray-600 text-sm mb-4">How customized learning paths can address diverse learning styles and improve educational outcomes for all students.</p>
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=professional%2520female%2520education%2520specialist%2520with%2520compassionate%2520expression%252C%2520neutral%2520background%252C%2520headshot&width=100&height=100&seq=214&orientation=squarish" alt="Author" class="w-8 h-8 rounded-full object-cover mr-2">
+<span class="text-sm text-gray-700">Michelle Garcia</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="text-sm text-gray-500">
+<span>April 15, 2025</span>
+<span class="mx-1">•</span>
+<span>8 min read</span>
+</div>
+<div class="flex space-x-2">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<i class="ri-heart-line"></i>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200">
+<i class="ri-bookmark-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More -->
+<div class="text-center">
+<button class="bg-white text-primary border border-primary hover:bg-primary/5 px-6 py-3 !rounded-button font-medium whitespace-nowrap">Load More Articles</button>
+</div>
+</div>
+<!-- Sidebar -->
+<div class="lg:w-1/3">
+<!-- Search Box -->
+<div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+<h3 class="text-lg font-semibold text-gray-900 mb-4">Search Articles</h3>
+<div class="relative">
+<input type="text" placeholder="Search by keyword..." class="w-full pl-10 pr-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm">
+<div class="absolute left-3 top-2.5 w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-search-line"></i>
+</div>
+</div>
+</div>
+<!-- Popular Posts -->
+<div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+<h3 class="text-lg font-semibold text-gray-900 mb-4">Popular Posts</h3>
+<div class="space-y-4">
+<div class="flex items-start">
+<img src="https://readdy.ai/api/search-image?query=gamification%2520in%2520education%2520with%2520digital%2520badges%2520and%2520rewards%252C%2520educational%2520technology%2520concept%252C%2520engaging%2520learning%2520elements%252C%2520colorful%2520design&width=200&height=120&seq=215&orientation=landscape" alt="Gamification" class="w-20 h-16 object-cover rounded mr-3">
+<div>
+<h4 class="font-medium text-gray-900 text-sm leading-tight mb-1">Gamification in Education: Making Learning Fun and Effective</h4>
+<p class="text-xs text-gray-500">April 10, 2025 • 5 min read</p>
+</div>
+</div>
+<div class="flex items-start">
+<img src="https://readdy.ai/api/search-image?query=mindfulness%2520and%2520stress%2520management%2520for%2520students%252C%2520peaceful%2520study%2520environment%252C%2520wellness%2520in%2520education%2520concept%252C%2520calming%2520educational%2520setting&width=200&height=120&seq=216&orientation=landscape" alt="Mindfulness" class="w-20 h-16 object-cover rounded mr-3">
+<div>
+<h4 class="font-medium text-gray-900 text-sm leading-tight mb-1">Mindfulness Practices for Students: Reducing Stress and Improving Focus</h4>
+<p class="text-xs text-gray-500">April 5, 2025 • 7 min read</p>
+</div>
+</div>
+<div class="flex items-start">
+<img src="https://readdy.ai/api/search-image?query=data%2520analytics%2520in%2520education%2520with%2520charts%2520and%2520metrics%252C%2520educational%2520performance%2520tracking%252C%2520learning%2520analytics%2520dashboard%252C%2520professional%2520data%2520visualization&width=200&height=120&seq=217&orientation=landscape" alt="Data Analytics" class="w-20 h-16 object-cover rounded mr-3">
+<div>
+<h4 class="font-medium text-gray-900 text-sm leading-tight mb-1">Using Data Analytics to Improve Learning Outcomes</h4>
+<p class="text-xs text-gray-500">March 30, 2025 • 8 min read</p>
+</div>
+</div>
+<div class="flex items-start">
+<img src="https://readdy.ai/api/search-image?query=global%2520education%2520with%2520diverse%2520students%2520connected%2520virtually%252C%2520international%2520learning%2520community%252C%2520cross-cultural%2520educational%2520exchange%252C%2520digital%2520global%2520classroom&width=200&height=120&seq=218&orientation=landscape" alt="Global Education" class="w-20 h-16 object-cover rounded mr-3">
+<div>
+<h4 class="font-medium text-gray-900 text-sm leading-tight mb-1">Global Classrooms: Connecting Students Across Borders</h4>
+<p class="text-xs text-gray-500">March 25, 2025 • 6 min read</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Categories -->
+<div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+<h3 class="text-lg font-semibold text-gray-900 mb-4">Categories</h3>
+<ul class="space-y-2">
+<li class="flex items-center justify-between">
+<a href="#" class="text-gray-700 hover:text-primary">E-Learning Trends</a>
+<span class="bg-gray-100 text-gray-600 text-xs font-medium px-2 py-1 rounded-full">24</span>
+</li>
+<li class="flex items-center justify-between">
+<a href="#" class="text-gray-700 hover:text-primary">Teaching Tips</a>
+<span class="bg-gray-100 text-gray-600 text-xs font-medium px-2 py-1 rounded-full">18</span>
+</li>
+<li class="flex items-center justify-between">
+<a href="#" class="text-gray-700 hover:text-primary">Student Success</a>
+<span class="bg-gray-100 text-gray-600 text-xs font-medium px-2 py-1 rounded-full">15</span>
+</li>
+<li class="flex items-center justify-between">
+<a href="#" class="text-gray-700 hover:text-primary">Educational Technology</a>
+<span class="bg-gray-100 text-gray-600 text-xs font-medium px-2 py-1 rounded-full">22</span>
+</li>
+<li class="flex items-center justify-between">
+<a href="#" class="text-gray-700 hover:text-primary">Career Development</a>
+<span class="bg-gray-100 text-gray-600 text-xs font-medium px-2 py-1 rounded-full">12</span>
+</li>
+<li class="flex items-center justify-between">
+<a href="#" class="text-gray-700 hover:text-primary">Higher Education</a>
+<span class="bg-gray-100 text-gray-600 text-xs font-medium px-2 py-1 rounded-full">9</span>
+</li>
+<li class="flex items-center justify-between">
+<a href="#" class="text-gray-700 hover:text-primary">K-12 Education</a>
+<span class="bg-gray-100 text-gray-600 text-xs font-medium px-2 py-1 rounded-full">14</span>
+</li>
+</ul>
+</div>
+<!-- Tags Cloud -->
+<div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+<h3 class="text-lg font-semibold text-gray-900 mb-4">Popular Tags</h3>
+<div class="flex flex-wrap gap-2">
+<a href="#" class="tag-item bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm transition duration-200">Online Learning</a>
+<a href="#" class="tag-item bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm transition duration-200">AI in Education</a>
+<a href="#" class="tag-item bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm transition duration-200">EdTech</a>
+<a href="#" class="tag-item bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm transition duration-200">Remote Teaching</a>
+<a href="#" class="tag-item bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm transition duration-200">Digital Literacy</a>
+<a href="#" class="tag-item bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm transition duration-200">Blended Learning</a>
+<a href="#" class="tag-item bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm transition duration-200">Assessment</a>
+<a href="#" class="tag-item bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm transition duration-200">Student Engagement</a>
+<a href="#" class="tag-item bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm transition duration-200">Professional Development</a>
+<a href="#" class="tag-item bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm transition duration-200">Microlearning</a>
+<a href="#" class="tag-item bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm transition duration-200">Gamification</a>
+<a href="#" class="tag-item bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm transition duration-200">Virtual Reality</a>
+</div>
+</div>
+<!-- Newsletter Subscription -->
+<div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+<h3 class="text-lg font-semibold text-gray-900 mb-2">Subscribe to Our Newsletter</h3>
+<p class="text-gray-600 text-sm mb-4">Get the latest educational insights and articles delivered to your inbox.</p>
+<form>
+<div class="mb-3">
+<input type="email" placeholder="Your email address" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm">
+</div>
+<button type="submit" class="w-full bg-primary text-white hover:bg-primary/90 py-2 !rounded-button font-medium text-sm whitespace-nowrap">Subscribe</button>
+</form>
+</div>
+<!-- Featured Authors -->
+<div class="bg-white rounded-lg shadow-sm p-6">
+<h3 class="text-lg font-semibold text-gray-900 mb-4">Featured Authors</h3>
+<div class="space-y-4">
+<div class="flex items-center">
+<img src="https://readdy.ai/api/search-image?query=professional%2520female%2520education%2520expert%2520with%2520glasses%2520and%2520confident%2520expression%252C%2520neutral%2520background%252C%2520headshot&width=100&height=100&seq=219&orientation=squarish" alt="Author" class="w-12 h-12 rounded-full object-cover mr-4">
+<div>
+<h4 class="font-medium text-gray-900">Dr. Emily Chen</h4>
+<p class="text-xs text-gray-500">Education Technology Specialist</p>
+</div>
+</div>
+<div class="flex items-center">
+<img src="https://readdy.ai/api/search-image?query=professional%2520male%2520education%2520expert%2520with%2520thoughtful%2520expression%252C%2520neutral%2520background%252C%2520headshot&width=100&height=100&seq=220&orientation=squarish" alt="Author" class="w-12 h-12 rounded-full object-cover mr-4">
+<div>
+<h4 class="font-medium text-gray-900">Thomas Wilson</h4>
+<p class="text-xs text-gray-500">Curriculum Development Expert</p>
+</div>
+</div>
+<div class="flex items-center">
+<img src="https://readdy.ai/api/search-image?query=professional%2520female%2520education%2520specialist%2520with%2520compassionate%2520expression%252C%2520neutral%2520background%252C%2520headshot&width=100&height=100&seq=221&orientation=squarish" alt="Author" class="w-12 h-12 rounded-full object-cover mr-4">
+<div>
+<h4 class="font-medium text-gray-900">Michelle Garcia</h4>
+<p class="text-xs text-gray-500">Student Success Coach</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="text-3xl font-['Pacifico'] text-white mb-6 inline-block">logo</a>
+<p class="text-gray-400 mb-6">Empowering learners worldwide with high-quality online education since 2015.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+<i class="ri-twitter-x-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary transition-colors">
+<i class="ri-linkedin-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-6">Explore</h3>
+<ul class="space-y-3">
+<li><a href="https://readdy.ai/home/3dcc5040-50e1-459c-bd6c-a7dc49a8a494/71f9574e-bf85-4ce5-b8e3-f3997602c717" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">Featured Courses</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Instructors</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+<li><a href="https://readdy.ai/home/3dcc5040-50e1-459c-bd6c-a7dc49a8a494/0ee2adbe-4fd9-4f6f-9d09-7b2a88244adb" data-readdy="true" class="text-gray-400 hover:text-white transition-colors">Forum</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Become an Instructor</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Affiliate Program</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-6">Information</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Career</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Press</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Help Center</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-6">Contact Us</h3>
+<ul class="space-y-3">
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-3 mt-0.5">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-gray-400">123 Education Street, San Francisco, CA 94107</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-3 mt-0.5">
+<i class="ri-mail-line"></i>
+</div>
+<span class="text-gray-400">support@edulearn.com</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400 mr-3 mt-0.5">
+<i class="ri-phone-line"></i>
+</div>
+<span class="text-gray-400">+1 (415) 555-1234</span>
+</li>
+</ul>
+<div class="mt-6">
+<h4 class="text-sm font-semibold mb-3">Payment Methods</h4>
+<div class="flex space-x-3">
+<div class="w-10 h-6 flex items-center justify-center bg-gray-800 rounded">
+<i class="ri-visa-fill text-lg"></i>
+</div>
+<div class="w-10 h-6 flex items-center justify-center bg-gray-800 rounded">
+<i class="ri-mastercard-fill text-lg"></i>
+</div>
+<div class="w-10 h-6 flex items-center justify-center bg-gray-800 rounded">
+<i class="ri-paypal-fill text-lg"></i>
+</div>
+<div class="w-10 h-6 flex items-center justify-center bg-gray-800 rounded">
+<i class="ri-apple-fill text-lg"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 EduLearn. All rights reserved.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-500 hover:text-white text-sm">Terms of Service</a>
+<a href="#" class="text-gray-500 hover:text-white text-sm">Privacy Policy</a>
+<a href="#" class="text-gray-500 hover:text-white text-sm">Cookie Policy</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Like and bookmark functionality
+const likeButtons = document.querySelectorAll('.ri-heart-line');
+likeButtons.forEach(button => {
+button.addEventListener('click', function() {
+if (this.classList.contains('ri-heart-line')) {
+this.classList.remove('ri-heart-line');
+this.classList.add('ri-heart-fill');
+this.classList.add('text-red-500');
+} else {
+this.classList.remove('ri-heart-fill');
+this.classList.remove('text-red-500');
+this.classList.add('ri-heart-line');
+}
+});
+});
+const bookmarkButtons = document.querySelectorAll('.ri-bookmark-line');
+bookmarkButtons.forEach(button => {
+button.addEventListener('click', function() {
+if (this.classList.contains('ri-bookmark-line')) {
+this.classList.remove('ri-bookmark-line');
+this.classList.add('ri-bookmark-fill');
+this.classList.add('text-primary');
+} else {
+this.classList.remove('ri-bookmark-fill');
+this.classList.remove('text-primary');
+this.classList.add('ri-bookmark-line');
+}
+});
+});
+});
+</script>
+</body>
+</html>
