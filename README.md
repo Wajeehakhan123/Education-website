@@ -1,1 +1,2 @@
 # Education-website
+The code you provided is a complete, professionally designed frontend prototype for an online learning platform (similar to Udemy, Coursera, or Skillshare). It is built purely with HTML, Tailwind CSS (via CDN), Remixicon for icons, and minimal vanilla JavaScript for interactions. There is no backend — it’s a static website meant for demonstration, portfolio, or as a starting point for a real application.
